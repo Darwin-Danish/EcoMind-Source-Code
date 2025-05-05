@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "532562949507",
+    "project_id": "ecomind-3464b",
+    "storage_bucket": "ecomind-3464b.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:532562949507:android:7d440604fe44444935f2b6",
+        "android_client_info": {
+          "package_name": "com.lumina.ecomind"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0ZS_Q7gONJj3Wx7qCrz4xdj_TkERvczc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
