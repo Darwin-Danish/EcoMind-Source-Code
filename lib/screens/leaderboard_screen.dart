@@ -21,32 +21,32 @@ class LeaderboardScreen extends StatelessWidget {
           SafeArea(
             child: Column(
               children: [
-                const SizedBox(height: 20),
+                const SizedBox(height: 10),
                 Text(
                   'Leaderboard',
                   style: TextStyle(
                     color: Colors.white,
-                    fontSize: 28,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 20),
                 // Top 3 Winners with Podium
                 Stack(
                   alignment: Alignment.bottomCenter,
                   children: [
                     // Podium Base
                     Container(
-                      height: 220,
-                      padding: EdgeInsets.symmetric(horizontal: 24),
+                      height: 180,
+                      padding: EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
                           // 2nd Place Podium
                           Container(
-                            width: 90,
-                            height: 160,
+                            width: 70,
+                            height: 130,
                             decoration: BoxDecoration(
                               color: Color(0xFF1F392C),
                               borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
@@ -54,8 +54,8 @@ class LeaderboardScreen extends StatelessWidget {
                           ),
                           // 1st Place Podium
                           Container(
-                            width: 90,
-                            height: 200,
+                            width: 70,
+                            height: 160,
                             decoration: BoxDecoration(
                               color: Color(0xFF1F392C),
                               borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
@@ -63,8 +63,8 @@ class LeaderboardScreen extends StatelessWidget {
                           ),
                           // 3rd Place Podium
                           Container(
-                            width: 90,
-                            height: 140,
+                            width: 70,
+                            height: 110,
                             decoration: BoxDecoration(
                               color: Color(0xFF1F392C),
                               borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
@@ -75,7 +75,7 @@ class LeaderboardScreen extends StatelessWidget {
                     ),
                     // Players
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 24),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         crossAxisAlignment: CrossAxisAlignment.end,
@@ -85,32 +85,32 @@ class LeaderboardScreen extends StatelessWidget {
                             name: "Jackson",
                             points: "1847",
                             imagePath: "assets/avatar1.png",
-                            height: 160,
-                            bottomPadding: 160,
+                            height: 130,
+                            bottomPadding: 130,
                           ),
                           _buildTopPlayer(
                             rank: 1,
                             name: "Elden",
                             points: "2430",
                             imagePath: "assets/avatar2.png",
-                            height: 200,
+                            height: 160,
                             isWinner: true,
-                            bottomPadding: 200,
+                            bottomPadding: 160,
                           ),
                           _buildTopPlayer(
                             rank: 3,
                             name: "Emma Aria",
                             points: "1674",
                             imagePath: "assets/avatar3.png",
-                            height: 140,
-                            bottomPadding: 140,
+                            height: 110,
+                            bottomPadding: 110,
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
-                const SizedBox(height: 30),
+                const SizedBox(height: 20),
                 // Other Players List
                 Expanded(
                   child: Container(
@@ -119,7 +119,7 @@ class LeaderboardScreen extends StatelessWidget {
                       borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
                     ),
                     child: ListView(
-                      padding: EdgeInsets.fromLTRB(20, 24, 20, 100), // Added bottom padding
+                      padding: EdgeInsets.fromLTRB(20, 24, 20, 100),
                       children: [
                         _buildPlayerListItem(4, "Sebastian", "1124"),
                         _buildPlayerListItem(5, "Jason", "875"),
@@ -173,8 +173,8 @@ class LeaderboardScreen extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            width: 80,
-            height: 80,
+            width: 60,
+            height: 60,
             decoration: BoxDecoration(
               shape: BoxShape.circle,
               gradient: LinearGradient(
@@ -200,12 +200,12 @@ class LeaderboardScreen extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 8),
+          const SizedBox(height: 6),
           Text(
             name,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 16,
+              fontSize: 14,
               fontWeight: FontWeight.w500,
             ),
           ),
@@ -235,8 +235,8 @@ class LeaderboardScreen extends StatelessWidget {
 
   Widget _buildPlayerListItem(int rank, String name, String points) {
     return Container(
-      margin: EdgeInsets.only(bottom: 16),
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      margin: EdgeInsets.only(bottom: 12),
+      padding: EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topLeft,

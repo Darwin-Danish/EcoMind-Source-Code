@@ -49,8 +49,14 @@ class _AddActivityScreenState extends State<AddActivityScreen> {
     final cameras = await availableCameras();
     if (cameras.isEmpty) return;
 
+    // Try to find back camera
+    final backCamera = cameras.firstWhere(
+      (camera) => camera.lensDirection == CameraLensDirection.back,
+      orElse: () => cameras.first, // Fallback to first available camera
+    );
+
     _controller = CameraController(
-      cameras[0],
+      backCamera,
       ResolutionPreset.high,
       enableAudio: false,
     );

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="gcm_defaultSenderId" translatable="false">532562949507</string>
+    <string name="google_api_key" translatable="false">AIzaSyC0ZS_Q7gONJj3Wx7qCrz4xdj_TkERvczc</string>
+    <string name="google_app_id" translatable="false">1:532562949507:android:7d440604fe44444935f2b6</string>
+    <string name="google_crash_reporting_api_key" translatable="false">AIzaSyC0ZS_Q7gONJj3Wx7qCrz4xdj_TkERvczc</string>
+    <string name="google_storage_bucket" translatable="false">ecomind-3464b.firebasestorage.app</string>
+    <string name="project_id" translatable="false">ecomind-3464b</string>
+    <style name="LaunchTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        
+        <item name="android:windowBackground">@drawable/launch_background</item>
+    </style>
+    <style name="NormalTheme" parent="@android:style/Theme.Light.NoTitleBar">
+        <item name="android:windowBackground">?android:colorBackground</item>
+    </style>
+</resources>

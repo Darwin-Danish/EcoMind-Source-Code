@@ -58,134 +58,116 @@ class _HomeScreenState extends State<HomeScreen> with SingleTickerProviderStateM
   Widget build(BuildContext context) {
     final Color primary = const Color(0xFF00E676);
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFF10281B),
-              Color(0xFF1A1A1A),
-            ],
-          ),
-        ),
-        child: Stack(
-          children: [
-            // Main content
-            _tabContents[_selectedTab],
-            
-            // Bottom Navigation Bar
-            Positioned(
-              left: 0,
-              right: 0,
-              bottom: 0,
-              child: Container(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: [
-                      Color(0xFF10281B).withOpacity(0.8),
-                      Color(0xFF10281B),
-                    ],
-                  ),
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.black.withOpacity(0.2),
-                      blurRadius: 10,
-                      offset: Offset(0, -2),
-                    ),
+      body: Stack(
+        children: [
+          // Main content
+          _tabContents[_selectedTab],
+          // Bottom Navigation Bar
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Color(0xFF10281B).withOpacity(0.8),
+                    Color(0xFF10281B),
                   ],
                 ),
-                padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    _NavBarIcon(
-                      icon: Icons.home_rounded,
-                      label: 'Home',
-                      selected: _selectedTab == 0,
-                      onTap: () => _handleTabChange(0),
-                    ),
-                    _NavBarIcon(
-                      icon: Icons.flag_rounded,
-                      label: 'Challenge',
-                      selected: _selectedTab == 1,
-                      onTap: () => _handleTabChange(1),
-                    ),
-                    // Center FAB Container
-                    Container(
-                      width: 64,
-                      height: 64,
-                      // margin was incorrectly placed as a positional argument, move it here:
-                      margin: EdgeInsets.only(bottom: 12),
-                      child: Center(
-                        child: Transform.scale(
-                          scale: _fabScaleAnimation.value,
-                          child: Container(
-                            height: 56,
-                            width: 56,
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                begin: Alignment.topLeft,
-                                end: Alignment.bottomRight,
-                                colors: [primary, primary.withGreen(200)],
-                              ),
-                              borderRadius: BorderRadius.circular(16),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: primary.withOpacity(0.3),
-                                  blurRadius: 8,
-                                  offset: const Offset(0, 4),
-                                ),
-                              ],
+                borderRadius: BorderRadius.vertical(top: Radius.circular(32)),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.2),
+                    blurRadius: 10,
+                    offset: Offset(0, -2),
+                  ),
+                ],
+              ),
+              padding: const EdgeInsets.fromLTRB(16, 8, 16, 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _NavBarIcon(
+                    icon: Icons.home_rounded,
+                    label: 'Home',
+                    selected: _selectedTab == 0,
+                    onTap: () => _handleTabChange(0),
+                  ),
+                  _NavBarIcon(
+                    icon: Icons.flag_rounded,
+                    label: 'Challenge',
+                    selected: _selectedTab == 1,
+                    onTap: () => _handleTabChange(1),
+                  ),
+                  Container(
+                    width: 64,
+                    height: 64,
+                    margin: const EdgeInsets.only(bottom: 12),
+                    child: Center(
+                      child: Transform.scale(
+                        scale: _fabScaleAnimation.value,
+                        child: Container(
+                          height: 56,
+                          width: 56,
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.topLeft,
+                              end: Alignment.bottomRight,
+                              colors: [primary, primary.withGreen(200)],
                             ),
-                            child: Material(
-                              color: Colors.transparent,
-                              child: InkWell(
-                                onTap: () async {
-                                  final result = await Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                      builder: (context) => const AddActivityScreen(),
-                                    ),
-                                  );
-                                  if (result != null) {
-                                    // TODO: Handle the result
-                                    print(result);
-                                  }
-                                },
-                                borderRadius: BorderRadius.circular(16),
-                                child: Icon(
-                                  Icons.add_rounded,
-                                  size: 32,
-                                  color: Colors.black,
-                                ),
+                            borderRadius: BorderRadius.circular(16),
+                            boxShadow: [
+                              BoxShadow(
+                                color: primary.withOpacity(0.3),
+                                blurRadius: 8,
+                                offset: const Offset(0, 4),
+                              ),
+                            ],
+                          ),
+                          child: Material(
+                            color: Colors.transparent,
+                            child: InkWell(
+                              onTap: () async {
+                                final result = await Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => const AddActivityScreen(),
+                                  ),
+                                );
+                                if (result != null) {
+                                  print(result);
+                                }
+                              },
+                              borderRadius: BorderRadius.circular(16),
+                              child: Icon(
+                                Icons.add_rounded,
+                                size: 32,
+                                color: Colors.black,
                               ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                    _NavBarIcon(
-                      icon: Icons.chat_bubble_rounded,
-                      label: 'Chat',
-                      selected: _selectedTab == 2,
-                      onTap: () => _handleTabChange(2),
-                    ),
-                    _NavBarIcon(
-                      icon: Icons.emoji_events_rounded,
-                      label: 'Leaderboard',
-                      selected: _selectedTab == 3,
-                      onTap: () => _handleTabChange(3),
-                    ),
-                  ],
-                ),
+                  ),
+                  _NavBarIcon(
+                    icon: Icons.chat_bubble_rounded,
+                    label: 'Chat',
+                    selected: _selectedTab == 2,
+                    onTap: () => _handleTabChange(2),
+                  ),
+                  _NavBarIcon(
+                    icon: Icons.emoji_events_rounded,
+                    label: 'Leaderboard',
+                    selected: _selectedTab == 3,
+                    onTap: () => _handleTabChange(3),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -251,51 +233,44 @@ class _HomeContentState extends State<HomeContent> {
     final Color green = const Color(0xFF00E676);
     return SafeArea(
       child: ListView(
-        padding: const EdgeInsets.fromLTRB(24, 16, 24, 80),
+        padding: const EdgeInsets.fromLTRB(16, 12, 16, 60), // Reduced padding
         children: [
-          // Header Row with more spacing
+          // Header Row
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8),
+            padding: const EdgeInsets.symmetric(vertical: 4), // Reduced vertical padding
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    boxShadow: [
-                      BoxShadow(
-                        color: green.withOpacity(0.2),
-                        blurRadius: 8,
-                        offset: const Offset(0, 2),
-                      ),
-                    ],
-                  ),
-                  child: CircleAvatar(
-                    backgroundColor: green,
-                    child: const Icon(Icons.person, color: Colors.black),
-                  ),
+                CircleAvatar(
+                  backgroundColor: green,
+                  radius: 18, // Smaller avatar
+                  child: const Icon(Icons.person, color: Colors.black, size: 18),
                 ),
                 const Text(
                   'EcoMind',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.w600,
-                    fontSize: 24,
+                    fontSize: 20, // Smaller font
                   ),
                 ),
                 Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4), // Smaller padding
                   decoration: BoxDecoration(
                     color: green.withOpacity(0.1),
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(12), // Smaller radius
                   ),
                   child: Row(
                     children: [
-                      Icon(Icons.local_fire_department, color: Colors.orange, size: 16),
+                      Icon(Icons.local_fire_department, color: Colors.orange, size: 14),
                       const SizedBox(width: 4),
                       Text(
-                        '5', // Change to dynamic streak count
-                        style: TextStyle(color: Colors.orange, fontWeight: FontWeight.w500),
+                        '5',
+                        style: TextStyle(
+                          color: Colors.orange,
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12, // Smaller font
+                        ),
                       ),
                     ],
                   ),
@@ -303,7 +278,7 @@ class _HomeContentState extends State<HomeContent> {
               ],
             ),
           ),
-          const SizedBox(height: 24),
+          const SizedBox(height: 16), // Reduced spacing
 
           // Welcome Card with gradient
           Container(

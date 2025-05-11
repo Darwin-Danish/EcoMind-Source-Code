@@ -204,7 +204,7 @@ class _ModernChallengeScreenState extends State<ModernChallengeScreen> {
 
   Widget _buildHeader() {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: EdgeInsets.all(12), // Reduced padding
       decoration: BoxDecoration(
         color: Colors.grey[900]?.withOpacity(0.5),
       ),
@@ -218,16 +218,20 @@ class _ModernChallengeScreenState extends State<ModernChallengeScreen> {
                 value: '2,547',
                 icon: Icons.star,
                 color: Color(0xFFFFD700),
+                iconSize: 24, // Smaller icon
+                fontSize: 18, // Smaller font
               ),
               _buildStatCard(
                 title: 'Weekly Streak',
                 value: '5 Days',
                 icon: Icons.local_fire_department,
                 color: Color(0xFFFF6B6B),
+                iconSize: 24,
+                fontSize: 18,
               ),
             ],
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 12), // Reduced spacing
           _buildStreakIndicator(),
         ],
       ),
@@ -239,29 +243,34 @@ class _ModernChallengeScreenState extends State<ModernChallengeScreen> {
     required String value,
     required IconData icon,
     required Color color,
+    double iconSize = 24,
+    double fontSize = 18,
   }) {
     return Container(
-      padding: EdgeInsets.all(16),
+      padding: EdgeInsets.all(12), // Reduced padding
       decoration: BoxDecoration(
         color: color.withOpacity(0.1),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12), // Smaller radius
         border: Border.all(color: color.withOpacity(0.2)),
       ),
       child: Column(
         children: [
-          Icon(icon, color: color, size: 32),
-          SizedBox(height: 8),
+          Icon(icon, color: color, size: iconSize),
+          SizedBox(height: 4), // Reduced spacing
           Text(
             value,
             style: TextStyle(
               color: Colors.white,
-              fontSize: 24,
+              fontSize: fontSize,
               fontWeight: FontWeight.bold,
             ),
           ),
           Text(
             title,
-            style: TextStyle(color: Colors.grey[400]),
+            style: TextStyle(
+              color: Colors.grey[400],
+              fontSize: 12, // Smaller font
+            ),
           ),
         ],
       ),
@@ -275,26 +284,29 @@ class _ModernChallengeScreenState extends State<ModernChallengeScreen> {
         bool isCompleted = index < 5;
         bool isToday = index == 4;
         return Container(
-          width: 40,
+          width: 32, // Smaller width
           child: Column(
             children: [
               Container(
-                height: 40,
+                height: 32, // Smaller height
                 decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   color: isCompleted ? Color(0xFF00E676) : Colors.grey[800],
                   border: isToday
-                      ? Border.all(color: Colors.white, width: 2)
+                      ? Border.all(color: Colors.white, width: 1.5) // Thinner border
                       : null,
                 ),
                 child: isCompleted
-                    ? Icon(Icons.check, color: Colors.black)
+                    ? Icon(Icons.check, color: Colors.black, size: 16) // Smaller icon
                     : null,
               ),
-              SizedBox(height: 4),
+              SizedBox(height: 2), // Reduced spacing
               Text(
                 ['M', 'T', 'W', 'T', 'F', 'S', 'S'][index],
-                style: TextStyle(color: Colors.grey[400]),
+                style: TextStyle(
+                  color: Colors.grey[400],
+                  fontSize: 10, // Smaller font
+                ),
               ),
             ],
           ),
@@ -321,14 +333,14 @@ class _ModernChallengeScreenState extends State<ModernChallengeScreen> {
           'Points History',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 18,
+            fontSize: 16, // Smaller font
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 16),
+        SizedBox(height: 12), // Reduced spacing
         Container(
-          height: 200,
-          padding: EdgeInsets.all(16),
+          height: 160, // Reduced height
+          padding: EdgeInsets.all(12), // Reduced padding
           decoration: BoxDecoration(
             color: Colors.grey[800]?.withOpacity(0.3),
             borderRadius: BorderRadius.circular(16),
@@ -421,14 +433,14 @@ class _ModernChallengeScreenState extends State<ModernChallengeScreen> {
           'Streak Progress',
           style: TextStyle(
             color: Colors.white,
-            fontSize: 18,
+            fontSize: 16, // Smaller font
             fontWeight: FontWeight.bold,
           ),
         ),
-        SizedBox(height: 16),
+        SizedBox(height: 12), // Reduced spacing
         Container(
-          height: 200,
-          padding: EdgeInsets.all(16),
+          height: 160, // Reduced height
+          padding: EdgeInsets.all(12), // Reduced padding
           decoration: BoxDecoration(
             color: Colors.grey[800]?.withOpacity(0.3),
             borderRadius: BorderRadius.circular(16),
